@@ -1,0 +1,40 @@
+{
+  "name": "im-chat",
+  "version": "1.0.0",
+  "description": "im chat",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "webpack --config config/webpack.config.dev.js",
+    "build": "webpack --config config/webpack.config.prod.js",
+    "test": "npm run test",
+    "pulish": "npm run publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icedJuice/im-chat.git"
+  },
+  "keywords": [
+    "im",
+    "IM",
+    "chat"
+  ],
+  "author": "icedJuice <1210712996@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icedJuice/im-chat/issues"
+  },
+  "homepage": "https://github.com/icedJuice/im-chat#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^5.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "webpack-cli": "^4.3.0"
+  }
+}
