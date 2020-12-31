@@ -1,4 +1,5 @@
-import defaultConfig from "./defaultConfig";
+import defaultConfig from "../config";
+
 class IMC {
   constructor(props) {
     this._config = Object.assign(defaultConfig, (props || {}));
@@ -6,6 +7,10 @@ class IMC {
     this._eventQueue = [];
     this.addMsgListener = this.addMsgListener.bind(this);
     this.removeMsgListener = this.removeMsgListener.bind(this);
+    this.init = this.init.bind(this);
+    this.putChatUI = this.putChitUI.bind(this);
+
+    // this.init();
   }
 
   addMsgListener(fn) {
@@ -21,6 +26,13 @@ class IMC {
     }
   }
   
+  init() {
+    const { ui } = this._config;
+  }
+
+  putChatUI() {
+
+  }
 }
 
 export default IMC;

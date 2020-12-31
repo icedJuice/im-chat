@@ -1,0 +1,1 @@
+export const SUSPENSION_BUTTON_TEXT = '发送';
