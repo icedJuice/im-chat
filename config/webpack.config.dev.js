@@ -1,33 +1,35 @@
 const path = require('path');
+const baseConfig = require('./webpack.config.base.js');
 const package = require('../package.json');
-const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const appDir = process.cwd();
-
-const reApp = (r) => path.resolve(appDir, r);
-
 const config = {
-    entry: path.resolve(__dirname, '../src/index.js'),
+    ...baseConfig,
+    entry: path.join(__dirname, '../src/index.js'),
     output: {
-        path: reApp('dist'),
-        filename: package.name + '.' + package.version + '.js',
+        path: path.resolve(path.join(__dirname, '../dist')),
+        filename: `${package.name}.${package.version}.min.js`
     },
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: '../dist',
+        host: '0.0.0.0',
+        contentBase: path.resolve(path.join(__dirname, "../dist")),
         hot: true,
         compress: true,
         port: 8000,
+        open: true,
+    },
+    watch: true,
+    watchOptions: {
+        aggregateTimeout: 1000,
+        poll: 1000
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'IM CHAT',
-            template: path.resolve(__dirname, '../public/index.html'),
+            template: path.resolve(path.join(__dirname, '../public/index.html')),
         }),
-        new webpack.HotModuleReplacementPlugin(),
     ],
 
 }

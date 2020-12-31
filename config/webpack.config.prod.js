@@ -1,25 +1,17 @@
 const path = require('path');
+const baseConfig = require('./webpack.config.base.js');
 const package = require('../package.json');
 
-const appDir = process.cwd();
-
-const reApp = (r) => path.resolve(appDir, r);
-
 const config = {
-    entry: path.resolve(__dirname, '../src/index.js'),
+    ...baseConfig,
+    entry: path.join(__dirname, '../src/index.js'),
     output: {
-        path: reApp('dist'),
-        filename: package.name + '.' + package.version + '.js',
+        path: path.resolve(path.join(__dirname, '../dist')),
+        library: 'im-chat',
+        libraryTarget: 'umd',
+        filename: `${package.name}.${package.version}.min.js`,
     },
-    // mode: 'production',
-    // module: {
-    //     rules: [
-    //         {
-    //             test: /\.js$/,
-    //             loader: require.resolve('babel-loader'),
-    //         },
-    //       ]
-    // },
+    mode: 'production',
 }
 
 module.exports = config;
