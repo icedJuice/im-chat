@@ -1,6 +1,9 @@
+import DefineClass from './defineClass';
 import defaultConfig from "../config";
 
-class IMC {
+
+
+class IMC extends DefineClass{
   constructor(props) {
     this._config = Object.assign(defaultConfig, (props || {}));
 
@@ -9,8 +12,14 @@ class IMC {
     this.removeMsgListener = this.removeMsgListener.bind(this);
     this.init = this.init.bind(this);
     this.putChatUI = this.putChitUI.bind(this);
+    const state = {
+      status: 0,
+    };
+    this.state = {};
 
-    // this.init();
+    Object.defineProperty()
+
+    this.init();
   }
 
   addMsgListener(fn) {
@@ -28,10 +37,15 @@ class IMC {
   
   init() {
     const { ui } = this._config;
+    this.putChatUI();
   }
 
   putChatUI() {
 
+  }
+
+  onStateChange(state) {
+    console.log('onStateChange', state);
   }
 }
 

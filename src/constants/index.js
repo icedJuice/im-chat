@@ -1,1 +1,4 @@
+export const SUSPENSION_BUTTON_ID = 'SUSPENSION_BUTTON_ID';
+
 export const SUSPENSION_BUTTON_TEXT = '发送';
+

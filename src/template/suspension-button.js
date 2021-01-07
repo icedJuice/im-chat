@@ -1,8 +1,7 @@
 /**
  *  悬浮按钮
 */
-
-import { SUSPENSION_BUTTON_TEXT } from '../constants';
+import { SUSPENSION_BUTTON_TEXT, SUSPENSION_BUTTON_ID } from '../constants';
 import { div, span } from '@/core/elements';
 
 const SuspensionButton = ({
@@ -11,11 +10,11 @@ const SuspensionButton = ({
 }) => {
 
     const el =  div({
+        id: SUSPENSION_BUTTON_ID,
         className: 'imchat_sus-btn',
         events: [{ name: 'click', callback: onClick }];
         children: [
-            div
+            div('消息')
         ],
     });
-
 }
