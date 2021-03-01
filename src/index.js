@@ -1,4 +1,4 @@
-import IMC from './core/index.js';
+import IMC from './imc/index.js';
 import './assets/style/index.less';
 
 if (window) {
