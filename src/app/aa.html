@@ -1,0 +1,52 @@
+<div class="dialogue-wrapper" :class="`mode-status-${modeStatus} ${hideBottom ? 'hide' : ''}`">
+    <div id="btn_open" class="dialogue-support-btn" :class="`${shink ? 'shink' : ''}`" @click="showChat">
+        <i class="dialogue-support-icon"></i>
+        <i class="dialogue-support-line"></i>
+        <span class="dialogue-support-text">联系客服</span>
+    </div>
+    <div class="dialogue-main">
+        <div class="dialogue-header">
+            <div class="dialogue-close">
+              <i @click="globalChat" v-show="modeStatus !== 2" class="dialogue-btn btn-global"></i>
+              <i @click="closeChat" class="dialogue-btn btn-close"></i>
+            </div>
+            <div class="dialogue-service-info">
+                <i class="dialogue-service-img"></i>
+                <div class="dialogue-service-title">
+                    <p class="dialogue-service-name">{{serveInfo ? serveInfo.fromName : '客服1'}}</p>
+                    <p class="dialogue-service-detail">中国房地产律师网</p>
+                </div>
+            </div>
+        </div>
+        <div id="dialogue_contain" class="dialogue-contain" ref="scrollEl">
+            <p
+              v-for="(msg, i) in imMessageList"
+              :key="msg.msgContent + '-' + i"
+              class="dialogue-service-contain"
+              :class="msg.isClient || msg.fromId == userId ? 'reverse' : ''"
+            >
+              <span v-if="msg.mType === 2" class="dialogue-text dialogue-service-text">
+                <el-image class="dialogue-img" :src="msg.msgContent" :preview-src-list="[msg.msgContent]"></el-image>
+              </span>
+              <span v-else class="dialogue-text dialogue-service-text">{{msg.msgContent}}</span>
+            </p>
+        </div>
+        <div class="dialogue-submit">
+            <p id="dialogue_hint" class="dialogue-hint" :class="isMsgShow ? 'show' : ''"><span class="dialogue-hint-icon">!</span><span class="dialogue-hint-text">发送内容不能为空</span></p>
+            <textarea
+              class="dialogue-input-text"
+              @keyup="onIptKeyEvt"
+              v-model="value"
+              placeholder="请输入您的问题..."
+            >
+            </textarea>
+            <div class="dialogue-input-tools">
+                <div> <!-- 小工具 --> </div>
+                <div>
+                  <span class="btn-send" @click="() => checkSubmit()">发送</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <golbal-pop v-show="showImgPop" :onClick="() => this.handlePopClick(true)" :onClose="() => this.handlePopClick()" ></golbal-pop>
+  </div>

@@ -1,0 +1,35 @@
+.comp-global-pop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+  .pop-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  .pop-cont {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    .pop-img {
+      max-width: 70vw;
+      max-height: 60vh;
+      cursor: pointer;
+    }
+  }
+  .close-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    cursor: pointer;
+  }
+}

@@ -11,3 +11,11 @@ export const createUUID = () => {
 export const isMobile = () => { 
   return /windows phone|iphone|ipad|android/ig.test(window.navigator.userAgent);
 }
+
+
+export const checkString = (string) => {
+  if (!string || /^\s*$/g.test(string)) {
+    return '';
+  }
+  return string.trim();
+}
