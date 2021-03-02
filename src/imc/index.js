@@ -1,6 +1,5 @@
-import App from '../app';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { h, render } from 'preact';
+import App from '../app/index';
 import imSession from '../core';
 import { rootElId, defaultConfig } from '../config';
 
@@ -10,7 +9,7 @@ function initApp (config) {
     rootEl.setAttribute('id', rootElId);
     document.body.appendChild(rootEl);
     
-    ReactDOM.render( <App {...config} />, rootEl );
+    render( <App {...config} />, rootEl );
 }
 
 export default function __IMC__ (config) {

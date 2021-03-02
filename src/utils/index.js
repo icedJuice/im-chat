@@ -7,3 +7,7 @@ export const createUUID = () => {
     });
     return uuid;
 }
+
+export const isMobile = () => { 
+  return /windows phone|iphone|ipad|android/ig.test(window.navigator.userAgent);
+}
