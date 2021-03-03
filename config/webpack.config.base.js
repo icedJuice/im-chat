@@ -6,7 +6,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /(\.css|\.less)$/,
+        test: /\.(css|less)$/,
         use: [
           {
             loader: "style-loader",

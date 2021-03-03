@@ -23,25 +23,25 @@ function imSession({ ws }) {
       this._session_ = window.__IM_SESSION__;
       return this;
     }
-    const ws = new WebSocket(ws);
-    ws.onopen = e => {
+    const _ws = new WebSocket(ws);
+    _ws.onopen = e => {
       this.onOpen(e);
     };
-    ws.onmessage = e => {
+    _ws.onmessage = e => {
       this.onMessage(e);
     };
-    ws.onclose = e => {
+    _ws.onclose = e => {
       this.onClose(e);
     };
 
-    ws.onerror = e => {
+    _ws.onerror = e => {
       this.onError(e);
     };
-    this._session_ = ws;
+    this._session_ = _ws;
     if (!window._patchIm_) {
       window._patchIm_ = new CustomEvent('_patchIm_', { detail: {} });
     }
-    window.__IM_SESSION__ = ws;
+    window.__IM_SESSION__ = _ws;
     return this;
   };
 
